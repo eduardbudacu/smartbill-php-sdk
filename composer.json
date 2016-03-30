@@ -1,0 +1,28 @@
+{
+    "name": "koding/smartbill-php-sdk",
+    "description": "PHP Development Kit for integration with SmartBill API",
+    "homepage": "https://github.com/eduardbudacu/smartbill-php-sdk",
+    "license": "MIT",
+    "keywords": ["smartbill", "rest client"],
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Eduard Budacu",
+            "email": "eduard.budacu@koding.ro",
+            "homepage": "http://www.koding.ro"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "ext-curl": "*",
+        "nategood/httpful": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "SmartBill": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}

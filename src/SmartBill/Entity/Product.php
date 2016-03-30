@@ -1,5 +1,7 @@
 <?php
-class SmartBill_Entity_Product {
+namespace SmartBill\Entity;
+
+class Product {
     
     /**
      *

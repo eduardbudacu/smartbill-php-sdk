@@ -1,4 +1,6 @@
 <?php
-class SmartBill_Entity_Invoice {
+namespace SmartBill\Entity;
+
+class Invoice {
 	
 }

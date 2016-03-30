@@ -1,5 +1,7 @@
 <?php
-class SmartBill_Entity_Client {
+namespace SmartBill\Entity;
+
+class Client {
     
     /**
      * Client name - special chars are not allowed 
