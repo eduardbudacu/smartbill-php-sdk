@@ -2,100 +2,20 @@
 namespace SmartBill\Entity;
 
 class Product {
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $name;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $code;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $translatedName;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $translatedMeasuringUnit;	
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $isDiscount = false;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $measuringUnitName;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $currency;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $quantity;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $price;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $isTaxIncluded;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $taxName;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $taxPercentage;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $exchangeRate;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $saveToDb = false;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $warehouseName;
-    
-    /**
-     *
-     * @var type 
-     */
-    protected $isService;  
+    public $name;
+    public $code;
+    public $translatedName;
+    public $translatedMeasuringUnit;	
+    public $isDiscount = false;
+    public $measuringUnitName;
+    public $currency;
+    public $quantity;
+    public $price;
+    public $isTaxIncluded;
+    public $taxName;
+    public $taxPercentage;
+    public $exchangeRate;
+    public $saveToDb = false;
+    public $warehouseName;
+    public $isService;  
 }

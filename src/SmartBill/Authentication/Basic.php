@@ -26,13 +26,13 @@ class Basic {
         return $this->token;
     }
     
-    protected function _getAuthString() {
-        return base64_encode(implod(":", array($this->username, $this->token)));
+    public function getAuthString() {
+        return base64_encode(implode(":", array($this->username, $this->token)));
     }
     
     public function getHeaderArray() {
         return array(
-            'authorization' => 'Basic '.$this->_getAuthString()
+            'authorization' => 'Basic '.$this->getAuthString()
         );
     }
     

@@ -1,11 +1,11 @@
 <?php
 
 require '../vendor/autoload.php';
+require 'config.php';
 
-\SmartBill\Client::init('test', 'test');
+\SmartBill\Client::init(SMARTBILL_API_USER, SMARTBILL_API_TOKEN);
 
-$invoiceMethod = new \SmartBill\Method\InvoicePdf('RO25252525', 'BMEN', '1234');
+$invoiceMethod = new \SmartBill\Method\InvoicePdf(SMARTBILL_COMPANY_IDENTIFICATION, 'KDG', '0107');
 
 $invoiceMethod->requestFile();
-$invoiceMethod->saveFile('invoice.pdf');
-
+$invoiceMethod->saveFile('invoice0107.pdf');

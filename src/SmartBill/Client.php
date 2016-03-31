@@ -1,6 +1,8 @@
 <?php
 namespace SmartBill;
 
+use Httpful\Request;
+
 /**
  * Description of Client
  *
@@ -21,7 +23,8 @@ class Client {
      */
     public static function getHttpClient() {
         $client = \Httpful\Request::init();
-        $client->authenticateWith(self::$auth->getUserName(), self::$auth->getToken());
+        $client->addHeader('Authorization', 'Basic '.  self::$auth->getAuthString());
+        $client->contentType('xml');
         return $client;
     }
 }

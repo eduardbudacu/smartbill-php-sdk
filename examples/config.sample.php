@@ -1,0 +1,6 @@
+<?php
+
+define('SMARTBILL_API_USER', 'test');
+define('SMARTBILL_API_TOKEN', 'test');
+define('SMARTBILL_COMPANY_IDENTIFICATION', 'RO12121212');
+

@@ -7,89 +7,89 @@ class Client {
      * Client name - special chars are not allowed 
      * @var string 
      */
-    protected $name;
+    public $name;
     
     /**
      * Client CIF 
      * @var string 
      */
-    protected $vatCode;
+    public $vatCode;
     
     /**
      * Client code
      * @var string 
      */
-    protected $code;
+    public $code;
     
     /**
      * Client address
      * @var string 
      */
-    protected $address;
+    public $address;
     
     /**
      * ONRC Client code
      * @var string 
      */
-    protected $regCom;
+    public $regCom;
     
     /**
      * Whether the client is a VAT payer
      * @var boolean 
      */
-    protected $isTaxPayer = false;
+    public $isTaxPayer = false;
     
     /**
      * Clients contact person
      * @var string 
      */
-    protected $contact;
+    public $contact;
     
     /**
      * Clients phone
      * @var string 
      */
-    protected $phone;
+    public $phone;
     
     /**
      * City
      * @var string 
      */
-    protected $city;
+    public $city;
     
     /**
      * County
      * @var string 
      */
-    protected $county;
+    public $county;
     
     /**
      * Country
      * @var string 
      */
-    protected $country;
+    public $country;
     
     /**
      * Email
      * @var string 
      */
-    protected $email;
+    public $email;
     
     /**
      * Clients bank
      * @var string 
      */
-    protected $bank;
+    public $bank;
     
     /**
      * Clients ibam
      * @var string 
      */
-    protected $iban;
+    public $iban;
     
     /**
-     *
+     * Save client to DB
      * @var boolean 
      */
-    protected $saveToDb = true;
+    public $saveToDb = true;
 }

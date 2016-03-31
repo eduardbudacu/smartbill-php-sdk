@@ -1,8 +1,6 @@
 <?php
 namespace SmartBill\Method;
 
-use Httpful\Request;
-
 /**
  * Download PDF invoice
  *
@@ -12,7 +10,7 @@ class InvoicePdf {
     
     protected $cif;
     protected $seriesname;
-    protected $seriesnumber;
+    protected $number;
     
     /**
      * HttpClient response
@@ -20,26 +18,23 @@ class InvoicePdf {
      */
     protected $response;
     
-    public function __construct($cif, $seriesname, $seriesnumber) {
+    public function __construct($cif, $seriesname, $number) {
         $this->cif = $cif;
         $this->seriesname = $seriesname;
-        $this->seriesnumber = $seriesnumber;
+        $this->number = $number;
     }
     
     public function requestFile() {
         $client = \SmartBill\Client::getHttpClient();
         $client->method('GET');
+        $client->withAccept('application/octet-stream');  
         $client->uri($this->_getApiEndpoint());
         $this->response = $client->send();
     }
     
     public function saveFile($filename) {
         if(empty($this->response->body)) {
-            throw new Exception('Empty response body. Must perform the request first');
-        }
-        
-        if(!is_writable($filename)) {
-            throw new Exception('Unable to write in the specified path '.$filename);
+            throw new \Exception('Empty response body. Must perform the request first');
         }
         
         file_put_contents($filename, $this->response->body);
@@ -47,7 +42,7 @@ class InvoicePdf {
     
     protected function _getApiEndpoint() {
         $baseUri = \SmartBill\Client::BASE_URL . 'invoice/pdf';
-        $params = array('cif' => $this->cif, 'seriesname' => $this->seriesname, 'seriesnumber' => $this->seriesnumber);
+        $params = array('cif' => $this->cif, 'seriesname' => $this->seriesname, 'number' => $this->number);
         return $baseUri . '?' . http_build_query($params);
     }
 }
