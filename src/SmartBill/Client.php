@@ -24,7 +24,7 @@ class Client {
     public static function getHttpClient() {
         $client = \Httpful\Request::init();
         $client->addHeader('Authorization', 'Basic '.  self::$auth->getAuthString());
-        $client->contentType('xml');
+        $client->contentType('json');
         return $client;
     }
 }

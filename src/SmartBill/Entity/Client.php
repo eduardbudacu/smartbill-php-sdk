@@ -1,7 +1,7 @@
 <?php
 namespace SmartBill\Entity;
 
-class Client {
+class Client extends AbstractEntity {
     
     /**
      * Client name - special chars are not allowed 

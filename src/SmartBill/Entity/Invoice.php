@@ -1,7 +1,7 @@
 <?php
 namespace SmartBill\Entity;
 
-class Invoice {
+class Invoice extends AbstractEntity {
     public $issueDate;
     public $seriesName;
     public $issuerCnp;

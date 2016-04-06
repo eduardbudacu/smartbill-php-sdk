@@ -40,40 +40,37 @@ class CreateInvoice {
             'companyVatCode' => $this->companyVatCode
         );
         
-        $requestArray = array_merge($requestArray, get_object_vars($this->invoiceDetails));
-        $requestArray['client'] = get_object_vars($this->client);
+        $requestArray = array_merge($requestArray, $this->invoiceDetails->toArray());
+        $requestArray['client'] = $this->client->toArray();
         
         foreach ($this->products as $p) {
-            $requestArray[] = array('product' => get_object_vars($p));
+            $requestArray['products'][] = $p->toArray();
         }
         
-        $xml_data = new \SimpleXMLElement('<invoice></invoice>');
-        $this->arrayToXml($requestArray, $xml_data);
-        return $xml_data->asXML();
-    }
-    
-    public function arrayToXml( $data, &$xml_data ) {
-        foreach( $data as $key => $value ) {
-            if( is_array($value) ) {
-                if(is_numeric($key)) {
-                    $keys = array_keys($value);
-                    $key = $keys[0];
-                    $subnode = $xml_data->addChild($key);
-                    $this->arrayToXml($value[$key], $subnode);
-                } else {
-                    $subnode = $xml_data->addChild($key);
-                    $this->arrayToXml($value, $subnode);
-                }
-            } else {
-                if(!empty($value)) {
-                    $xml_data->addChild("$key",htmlspecialchars("$value"));
-                }
-            }
-         }
+        return json_encode($requestArray);
     }
     
     public function isSuccesful() {
-        
+        if(empty($this->response->body->errorText)) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+    
+    public function getNumber() {
+        if($this->isSuccesful()) {
+            return $this->response->body->number;
+        }
+    }
+    
+    /**
+     * Requests PDF file and returns the object
+     * @return \SmartBill\Method\InvoicePdf
+     */
+    public function getPdf() {
+        $invoicePdf = new \SmartBill\Method\InvoicePdf($this->companyVatCode, $this->invoiceDetails->seriesName, $this->getNumber());
+        $invoicePdf->requestFile();
+        return $invoicePdf;
     }
     
     protected function _getApiEndpoint() {

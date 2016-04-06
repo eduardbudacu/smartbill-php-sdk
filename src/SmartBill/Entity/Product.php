@@ -1,7 +1,7 @@
 <?php
 namespace SmartBill\Entity;
 
-class Product {
+class Product extends AbstractEntity {
     public $name;
     public $code;
     public $translatedName;
